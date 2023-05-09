@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 
 namespace DBForm
 {
@@ -20,18 +20,18 @@ namespace DBForm
 
         private void btnEnregistrer_Click(object sender, EventArgs e)
         {
-            MySqlConnection cn = new MySqlConnection();
-            cn.ConnectionString = "Server=localhost;Database=contacts;Uid=root;Pwd=;";
-            string requete = "insert into contact (nom,phone1,id_user) values('" + txtNom.Text + 
-                "','" + txtTelephone.Text + "',1)";
-            MySqlCommand cmd = new MySqlCommand(requete);
+            SqlConnection cn = new SqlConnection();
+            cn.ConnectionString = @"Server=LOCALHOST\SQLEXPRESS;Database=mescontacts;Trusted_Connection=True;";
+            string requete = "insert into contacts (nom,telephone,email) values('" + txtNom.Text + 
+                "','" + txtTelephone.Text + "','" + txtEmail.Text + "')";
+            SqlCommand cmd = new SqlCommand(requete);
             cmd.Connection = cn;
             //MySqlDataReader mdr;
             try
             {
                 cn.Open();
                 int res = cmd.ExecuteNonQuery();
-                MessageBox.Show("REQUETE EXECUTEE");
+                MessageBox.Show("REQUETE EXECUTEE AVEC SUCCES");
                 /*while (mdr.Read())
                 {
                     //MessageBox.Show("Nom: " + mdr["nom"] + " , Téléphone: " + mdr["phone1"]);

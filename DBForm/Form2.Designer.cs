@@ -33,6 +33,8 @@
             this.txtNom = new System.Windows.Forms.TextBox();
             this.txtTelephone = new System.Windows.Forms.TextBox();
             this.btnEnregistrer = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -69,7 +71,7 @@
             // 
             // btnEnregistrer
             // 
-            this.btnEnregistrer.Location = new System.Drawing.Point(96, 104);
+            this.btnEnregistrer.Location = new System.Drawing.Point(96, 139);
             this.btnEnregistrer.Name = "btnEnregistrer";
             this.btnEnregistrer.Size = new System.Drawing.Size(111, 23);
             this.btnEnregistrer.TabIndex = 4;
@@ -77,11 +79,29 @@
             this.btnEnregistrer.UseVisualStyleBackColor = true;
             this.btnEnregistrer.Click += new System.EventHandler(this.btnEnregistrer_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(18, 102);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Email:";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(96, 102);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(202, 20);
+            this.txtEmail.TabIndex = 6;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(483, 211);
+            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnEnregistrer);
             this.Controls.Add(this.txtTelephone);
             this.Controls.Add(this.txtNom);
@@ -101,5 +121,7 @@
         private System.Windows.Forms.TextBox txtNom;
         private System.Windows.Forms.TextBox txtTelephone;
         private System.Windows.Forms.Button btnEnregistrer;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtEmail;
     }
 }

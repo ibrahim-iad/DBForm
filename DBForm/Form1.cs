@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 
 namespace DBForm
 {
@@ -20,11 +20,11 @@ namespace DBForm
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MySqlConnection cn = new MySqlConnection();
-            cn.ConnectionString = "Server=localhost;Database=contacts;Uid=root;Pwd=;";
-            MySqlCommand cmd = new MySqlCommand("SELECT * FROM contact;");
+            SqlConnection cn = new SqlConnection();
+            cn.ConnectionString = @"Server=LOCALHOST\SQLEXPRESS;Database=mescontacts;Trusted_Connection=True;";
+            SqlCommand cmd = new SqlCommand("SELECT * FROM contacts;");
             cmd.Connection = cn;
-            MySqlDataReader mdr;
+            SqlDataReader mdr;
             try
             {
                 cn.Open();
@@ -33,7 +33,8 @@ namespace DBForm
                 {
                     //MessageBox.Show("Nom: " + mdr["nom"] + " , Téléphone: " + mdr["phone1"]);
                     txtNom.Text = mdr["nom"].ToString();
-                    txtTelephone.Text = mdr["phone1"].ToString();
+                    txtTelephone.Text = mdr["telephone"].ToString();
+                    txtEmail.Text = mdr["email"].ToString();
                     MessageBox.Show("SUIVANT");
                 }
                 mdr.Close();

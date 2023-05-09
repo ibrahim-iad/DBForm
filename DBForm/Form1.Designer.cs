@@ -33,11 +33,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtNom = new System.Windows.Forms.TextBox();
             this.txtTelephone = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnLire
             // 
-            this.btnLire.Location = new System.Drawing.Point(98, 110);
+            this.btnLire.Location = new System.Drawing.Point(98, 149);
             this.btnLire.Name = "btnLire";
             this.btnLire.Size = new System.Drawing.Size(75, 23);
             this.btnLire.TabIndex = 0;
@@ -57,7 +59,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(29, 66);
+            this.label2.Location = new System.Drawing.Point(26, 66);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 13);
             this.label2.TabIndex = 2;
@@ -77,11 +79,29 @@
             this.txtTelephone.Size = new System.Drawing.Size(239, 20);
             this.txtTelephone.TabIndex = 4;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(29, 112);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Email:";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(98, 109);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(239, 20);
+            this.txtEmail.TabIndex = 6;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(408, 234);
+            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.txtTelephone);
             this.Controls.Add(this.txtNom);
             this.Controls.Add(this.label2);
@@ -101,6 +121,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtNom;
         private System.Windows.Forms.TextBox txtTelephone;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtEmail;
     }
 }
 
