@@ -49,5 +49,11 @@ namespace DBForm
                 cn.Close();
             }
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Form2 f = new Form2();
+            f.ShowDialog();
+        }
     }
 }

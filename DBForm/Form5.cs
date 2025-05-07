@@ -2,19 +2,18 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using MySql.Data.MySqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//using System.Data.SqlClient;
-using MySql.Data.MySqlClient;
 
 namespace DBForm
 {
-    public partial class Form2 : Form
+    public partial class Form5 : Form
     {
-        public Form2()
+        public Form5()
         {
             InitializeComponent();
         }
@@ -23,24 +22,21 @@ namespace DBForm
         {
             MySqlConnection cn = new MySqlConnection();
             cn.ConnectionString = @"Server=localhost;Database=mescontacts;Uid=root;Pwd=;";
-            string requete = "insert into contacts (nom,telephone,email) values('" + txtNom.Text + 
-                "','" + txtTelephone.Text + "','" + txtEmail.Text + "')";
+            string requete = "update contacts set nom=@nom,telephone=@telephone,email=@email where id=@id";
             MySqlCommand cmd = new MySqlCommand(requete);
+            cmd.Parameters.AddWithValue("@nom", txtNom.Text);
+            cmd.Parameters.AddWithValue("@telephone", txtTelephone.Text);
+            cmd.Parameters.AddWithValue("@email", txtEmail.Text);
+            cmd.Parameters.AddWithValue("@id", txtID.Text);
             cmd.Connection = cn;
-            //MySqlDataReader mdr;
             try
             {
                 cn.Open();
                 int res = cmd.ExecuteNonQuery();
-                MessageBox.Show("REQUETE EXECUTEE AVEC SUCCES");
-                /*while (mdr.Read())
-                {
-                    //MessageBox.Show("Nom: " + mdr["nom"] + " , Téléphone: " + mdr["phone1"]);
-                    txtNom.Text = mdr["nom"].ToString();
-                    txtTelephone.Text = mdr["phone1"].ToString();
-                    MessageBox.Show("SUIVANT");
-                }*/
-                //mdr.Close();
+                if (res > 0)
+                    MessageBox.Show("MIT A JOUR EXECUTEE AVEC SUCCES");
+                else
+                    MessageBox.Show("Aucune donnée n'a été mise à jour !");
             }
             catch (Exception ex)
             {
